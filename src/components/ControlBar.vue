@@ -26,7 +26,7 @@
             <input v-model="price" class="form-section__input" id="good-price" type="text" placeholder="Введите цену">
             <span v-if="errors.price" class="alert">Поле является обязательным</span>
         </div>
-        <button type="submit" class="form__submit">Добавить товар</button>
+        <button :disabled="title === '' || description === '' || price === '' || imgLink === ''" type="submit" class="form__submit">Добавить товар</button>
     </form>
 </template>
 
