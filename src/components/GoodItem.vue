@@ -71,7 +71,9 @@ export default {
     .product__img {
         width: 100%;
         height: 12.5rem;
-        object-fit: contain;
+        object-fit: cover;
+        border-top-right-radius: inherit;
+        border-top-left-radius: inherit;
     }
 
     .product__title {

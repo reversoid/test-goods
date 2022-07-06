@@ -1,5 +1,7 @@
 <template>
-    <GoodItem v-for="product in products" :key="product.id" :product="product" :deleteCallback="deleteCallback"></GoodItem>
+    <div class="product-list-wrapper">
+        <GoodItem v-for="product in products" :key="product.id" :product="product" :deleteCallback="deleteCallback"></GoodItem>
+    </div>
 </template>
 
 <script>
@@ -16,3 +18,11 @@ export default {
     },
 };
 </script>
+<style>
+.product-list-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+</style>

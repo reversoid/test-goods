@@ -2,7 +2,7 @@
   <div class="wrapper">
     <h1 class="mega-title">Добавление товара</h1>
     <section class="mainpage">
-      <ControlBar style="margin-right: 1rem;"/>
+      <ControlBar style="margin-right: 1rem;" :_createProduct="createProduct"/>
       <GoodsList :products="goods" :deleteCallback="deleteProduct" />
     </section>
   </div>
@@ -28,6 +28,9 @@ export default {
     deleteProduct(id) {
       this.goods = this.goods.filter((product) => product.id != id);
     },
+    createProduct(imgLink, title, description, price) {
+      this.goods.push({title, description, price, imgLink, id: ++id})
+    }
   }
 };
 </script>
