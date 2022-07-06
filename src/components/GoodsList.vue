@@ -23,6 +23,5 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    align-items: center;
 }
 </style>
