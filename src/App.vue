@@ -3,7 +3,7 @@
     <h1 class="mega-title">Добавление товара</h1>
     <section class="mainpage">
       <ControlBar style="margin-right: 1rem;" :_createProduct="createProduct"/>
-      <GoodsList :products="goods" :deleteCallback="deleteProduct" />
+      <GoodsList :products="goods" :deleteCallback="deleteProduct" :sortProducts="sortProducts"/>
     </section>
   </div>
 </template>
@@ -29,7 +29,23 @@ export default {
       this.goods = this.goods.filter((product) => product.id != id);
     },
     createProduct(imgLink, title, description, price) {
-      this.goods.push({title, description, price, imgLink, id: ++id})
+      this.goods.push({ title, description, price, imgLink, id: ++id })
+    },
+    sortProducts(isAsc, by) {
+      if (by === 'price') {
+        if (isAsc) {
+          this.goods.sort((a, b) => a.price - b.price)
+        } else {
+          this.goods.sort((a, b) => b.price - a.price)
+        }
+      } else {
+        if (isAsc) {
+          this.goods.sort((a, b) => (a.title < b.title) ? -1 : 1)
+        } else {
+          this.goods.sort((a, b) => (a.title < b.title) ? 1 : -1)
+        }
+      }
+
     }
   }
 };
